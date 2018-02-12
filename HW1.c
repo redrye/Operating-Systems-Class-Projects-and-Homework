@@ -4,11 +4,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+/* Macros Definition for clearing the screen */
+#ifdef _WIN32 || _WIN64
+#define clear "CLS"
+#else
+#define clear "clear"
+#endif
 
 /* Throw the instructions */
 void instruct_error() {
-    system("clear");    /* Clear the display screen */
+    system(clear);    /* Clear the display screen */
     printf("Operating Systems Homework Code Assignment 1\n\nUsage: ./HW1 [-s | -f] [input-file] [output-file(if using -f option)]\n\n");
 }
 
@@ -18,6 +23,14 @@ void instruct_error() {
 void validateArgs(int n, char *c) {
     if (n < 3 || (strcmp(c, "-s") != 0) && (strcmp(c, "-f") != 0)) {
         instruct_error();
+        
+        /* If using windows, and double click the executable,
+            pause to read the instructions and exit. */
+        
+#ifdef _WIN32 || _WIN64
+		system("pause");
+#endif
+
         exit(0);
     }
 }
