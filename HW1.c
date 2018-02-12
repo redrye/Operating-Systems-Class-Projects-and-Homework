@@ -1,4 +1,20 @@
-/* Coded By: Ryan Boudreaux */
+/*
+
+Coded By: Ryan Boudreaux 
+	Date 2/12/2018		
+		
+HW1 is a C program that counts
+the number of non white-space
+characters in an input text
+file, then based on the argument
+flags (-s or -f) the result will
+be displayed via screen (-s) or
+be written to an output file (-f)
+
+Usage: ./HW1 [-s | -f] [input-file] [output-file(if using -f option)]
+
+*/	
+
 
 
 #include <stdio.h>
